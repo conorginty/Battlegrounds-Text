@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Murloc Tidehunter",
+    "tavernTier": 1,
+    "attack": 2,
+    "health": 1,
+    "type": "Murloc",
+    "abilities": {
+      "hasBattlecry": true,
+      "battlecryEffect": "Summon a 1/1 Murloc Scout",
+      "hasDeathrattle": false,
+      "deathrattleEffect": "",
+      "hasTaunt": false,
+      "hasDivineShield": false
+    }
+  }
+]

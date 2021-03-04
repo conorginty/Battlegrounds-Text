@@ -1,0 +1,17 @@
+Open to changin this format - Not sure if it's
+
+{
+    "name": "",
+    "tavernTier": 1,
+    "attack": 1,
+    "health": 1,
+    "type": "",
+    "abilities": {
+      "hasBattlecry": false,
+      "battlecryEffect": "",
+      "hasDeathrattle": false,
+      "deathrattleEffect": "",
+      "hasTaunt": false,
+      "hasDivineShield": false
+    }
+}
