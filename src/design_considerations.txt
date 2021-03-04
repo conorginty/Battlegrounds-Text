@@ -1,0 +1,3 @@
+1. Hand and Board share a lot of attributes and methods.
+    - Should they inherit from a CardCollection class? (as that's fundamentally what they both are in this design)
+    - Decision: Decided to include CardCollection that is extended by Board and Hand (One place to store code)
