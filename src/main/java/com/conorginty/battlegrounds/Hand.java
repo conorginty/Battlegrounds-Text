@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+package com.conorginty.battlegrounds;
 
 public class Hand extends CardCollection {
-    // === Instance Variables ===
+    // === Instance Variables/ Fields ===
 
     // === Constructors ===
     public Hand() {
-        super(10);
+        super("Hand", 10);
     }
 
     // === Getters ===

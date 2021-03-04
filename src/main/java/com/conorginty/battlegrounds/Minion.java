@@ -1,5 +1,7 @@
+package com.conorginty.battlegrounds;
+
 public class Minion {
-    // === Instance Variables ===
+    // === Instance Variables/ Fields ===
     private String name;
     private int tavernTier;
     private int attack;
@@ -9,6 +11,7 @@ public class Minion {
     private boolean hasTaunt;
     private boolean hasDivineSheild;
     private String type; // Neutral, Murloc, Beast, Mech, Demons, Dragon, Pirate and Elemental
+    // I don't think the following Fields should be included in the JSON
     private boolean isTavernMinion;
     private boolean isOwnedMinion;
     private boolean isHandMinion;
@@ -87,4 +90,31 @@ public class Minion {
     // === Setters ===
 
     // === Extras ===
+    private void attackEnemyMinion() {
+
+    }
+
+    private void gainAttack(int amount) {
+        attack += amount;
+    }
+
+    private void gainHealth(int amount) {
+        health += amount;
+    }
+
+    private void loseHealth(int amount) {
+        health -= amount;
+    }
+
+    private boolean die() {
+        if (health <= 0) {
+            System.out.println("Minion has died...");
+            return true;
+        }
+        return false;
+    }
+
+    private void determineAbilityEffect(String name) {
+
+    }
 }

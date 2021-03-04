@@ -1,5 +1,7 @@
+package com.conorginty.battlegrounds;
+
 public class Player {
-    // === Instance Variables ===
+    // === Instance Variables/ Fields ===
     private String username;
     private Board board;
     private Hand hand;
