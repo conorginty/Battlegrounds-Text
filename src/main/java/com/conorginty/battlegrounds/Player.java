@@ -46,13 +46,35 @@ public class Player {
 
     // === Extras ===
     public boolean buyMinion(Minion minion) {
-        if (gold < minion.getCost()) {
+        if (hand.isFull()) {
+            System.out.println("Your hand is too full");
+            return false;
+        } else if (gold < minion.getCost()) {
             System.out.println("Not enough money to buy the Minion");
             return false;
         }
         // Have enough money to buy it
+        // So locate the Minion
+        int index = tavern.findMinion(minion);
+        System.out.println("Index of minion in tavern is: " + index);
         // BUY THE MINION (Remove it from the Tavern, and add it to your hand)
+        Minion minionFromTavern = tavern.popMinion(index);
+        hand.addNewMinion(minionFromTavern);
         // Deduct your Gold by the cost of the Minion
+
         return true;
+    }
+
+    public boolean playMinion(int index) {
+        hand.playMinion(index);
+        return true;
+    }
+
+    public void displayFullView() {
+        System.out.println("====================================");
+        tavern.printMinions();
+        board.printMinions();
+        hand.printMinions();
+        System.out.println("====================================");
     }
 }

@@ -43,7 +43,7 @@ public class CardCollection {
 
     // === Extras ===
     public boolean isEmpty() {
-        return size == 0;
+        return minions.size() == 0;
     }
 
     public boolean isFull() {
@@ -55,6 +55,7 @@ public class CardCollection {
     }
 
     public void printMinionAddedSuccessfullyMessage(Minion minion) {
+
         System.out.println("Minion: " + minion.getName() + " was added successfully to your " + name);
     }
 
@@ -63,7 +64,7 @@ public class CardCollection {
     }
 
     public boolean validIndex(int index) {
-        return (index >= 0 && index <= size);
+        return (index >= 0 && index <= minions.size());
         // OPPOSITE LOGIC: index < 0 || index >= size
     }
     private int findMinion(String queryMinionName) {
@@ -78,7 +79,7 @@ public class CardCollection {
         return -1;
     }
 
-    private int findMinion(Minion minion) {
+    public int findMinion(Minion minion) {
         return minions.indexOf(minion);
     }
 
@@ -153,6 +154,8 @@ public class CardCollection {
 
     public void printMinions() {
         System.out.println("****** Current " + name + " ******");
+//        System.out.println("Current Minion Count = " + size); // I DON'T UNDERSTAND WHY THIS DOESN'T WORK??
+        System.out.println("Current Minion Count = " + minions.size());
         if (minions.isEmpty()) {
             System.out.println(name + " is currently empty");
             return;
