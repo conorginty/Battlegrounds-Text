@@ -8,6 +8,10 @@ public class AlleyCat extends Minion {
         super("Alleycat", 1, 1, 1, "Beast", true, false, false, false, isTavernMinion, isOwnedMinion, isHandMinion, isPlayedMinion, cardCollection);
     }
 
+    public AlleyCat(CardCollection cardCollection) {
+        super("Alleycat", 1, 1, 1, "Beast", true, false, false, false, true, false, false, false, cardCollection);
+    }
+
     // If board is not full
     // - summon a 1/1 Cat token to the right
     // - return true
@@ -17,9 +21,9 @@ public class AlleyCat extends Minion {
     public boolean activateBattlecry() {
         if (!cardCollection.isFull()) {
             // Call the Factory Constructor to create a "Murloc Scout" Token
-            Minion murlocScout = createMinion("Murloc Scout", 1, 1, 1, "Murloc", false, false, false, false, false, false, false, true, cardCollection);
+            Minion tabbycat = createMinion("Tabbycat", 1, 1, 1, "Beast", false, false, false, false, false, false, false, true, cardCollection);
             // Add the token to the end of the board
-            cardCollection.addNewMinion(murlocScout);
+            cardCollection.addNewMinion(tabbycat);
         }
         return false;
     }

@@ -159,14 +159,11 @@ public class Minion {
         return false;
     }
 
-//    protected int findOwnIndex() {
-//
-//    }
-
     // ===== Factory Constructor??? =====
     // Public static method to create a new Minion
     // static is important, as it means we don't have to create a new object instance for this Minion class
     public static Minion createMinion(String name, int tavernTier, int attack, int health, String type, boolean hasBattlecry, boolean hasDeathrattle, boolean hasTaunt, boolean hasDivineShield, boolean isTavernMinion, boolean isOwnedMinion, boolean isHandMinion, boolean isPlayedMinion, CardCollection cardCollection) {
         return new Minion(name, tavernTier, attack, health, type, hasBattlecry, hasDeathrattle, hasTaunt, hasDivineShield, isTavernMinion, isOwnedMinion, isHandMinion, isPlayedMinion, cardCollection);
     }
+
 }

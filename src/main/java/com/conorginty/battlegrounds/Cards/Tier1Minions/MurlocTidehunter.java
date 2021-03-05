@@ -8,6 +8,10 @@ public class MurlocTidehunter extends Minion {
         super("Murloc Tidehunter", 1, 2, 1, "Murloc", true, false, false, false, isTavernMinion, isOwnedMinion, isHandMinion, isPlayedMinion, cardCollection);
     }
 
+    public MurlocTidehunter(CardCollection cardCollection) {
+        super("Murloc Tidehunter", 1, 2, 1, "Murloc", true, false, false, false, true, false, false, false, cardCollection);
+    }
+
     // If board is not full
     // - summon a 1/1 Murloc token to the right
     // - return true
