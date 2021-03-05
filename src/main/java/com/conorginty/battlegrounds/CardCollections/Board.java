@@ -1,11 +1,11 @@
-package com.conorginty.battlegrounds;
+package com.conorginty.battlegrounds.CardCollections;
 
-public class Hand extends CardCollection {
+public class Board extends CardCollection {
     // === Instance Variables/ Fields ===
 
     // === Constructors ===
-    public Hand() {
-        super("Hand", 10);
+    public Board() {
+        super("Board", 7);
     }
 
     // === Getters ===
@@ -13,5 +13,4 @@ public class Hand extends CardCollection {
     // === Setters ===
 
     // === Extras ===
-
 }

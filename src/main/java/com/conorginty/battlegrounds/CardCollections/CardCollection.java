@@ -1,6 +1,10 @@
-package com.conorginty.battlegrounds;
+package com.conorginty.battlegrounds.CardCollections;
+
+import com.conorginty.battlegrounds.Cards.Minion;
 
 import java.util.ArrayList;
+// Random number generator
+import java.util.Random;
 
 public class CardCollection {
     // === Instance Variables ===
@@ -14,7 +18,7 @@ public class CardCollection {
         this.name = name;
         // Default as you start of with nothing;
         this.minions = new ArrayList<Minion>(); // Empty ArrayList;
-        this.maxCapacity = this.maxCapacity; // max capacity for a Board is 7 and 10 for a Hand
+        this.maxCapacity = maxCapacity; // max capacity for a Board is 7 and 10 for a Hand
         this.size = minions.size(); // Both boards and hands should start off empty (and are dependent on the size of the list)
     }
 
@@ -58,6 +62,10 @@ public class CardCollection {
         System.out.println("Minion: " + minion.getName() + " does not exist. Minion not added to your " + name);
     }
 
+    public boolean validIndex(int index) {
+        return (index >= 0 && index <= size);
+        // OPPOSITE LOGIC: index < 0 || index >= size
+    }
     private int findMinion(String queryMinionName) {
         for (int i=0; i < minions.size(); i++) {
             Minion current = minions.get(i);
@@ -108,8 +116,50 @@ public class CardCollection {
             // Add it to the non-full Y (e.g. Hand, Board etc)
             printMinionAddedSuccessfullyMessage(minion);
             minions.add(minion);
+            // Make it aware of what Card Collection it's apart of
+            minion.setCardCollection(this);
             return true;
         }
         return false;
+    }
+
+    // Effectively the same as Summon
+    public boolean addNewMinion(Minion minion) {
+        if (isFull()) {
+            printTooFullMessage();
+        } else {
+            printMinionAddedSuccessfullyMessage(minion);
+            minions.add(minion);
+            // Make it aware of what Card Collection it's apart of
+            minion.setCardCollection(this);
+        }
+        return false;
+    }
+
+    public Minion popMinion(int index) {
+        if (validIndex(index)) {
+            System.out.println("Removing Minion at index " + index + " from the " + name);
+            return minions.remove(index);
+        }
+        return null;
+    }
+
+    public Minion getRandomMinion() {
+        Random randomGenerator = new Random();
+        int index = randomGenerator.nextInt(minions.size());
+        Minion minion = minions.get(index);
+        return minion;
+    }
+
+    public void printMinions() {
+        System.out.println("****** Current " + name + " ******");
+        if (minions.isEmpty()) {
+            System.out.println(name + " is currently empty");
+            return;
+        }
+        for (int i=0; i < minions.size(); i++) {
+            Minion current = minions.get(i);
+            System.out.println(i+1 + ". " + current.getName() + " -> " + current.getAttack() + "/" + current.getHealth());
+        }
     }
 }
