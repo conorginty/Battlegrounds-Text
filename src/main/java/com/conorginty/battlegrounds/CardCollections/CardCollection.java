@@ -79,7 +79,9 @@ public class CardCollection {
         return -1;
     }
 
+    // ==== Locate a Minion in a given Card Collection ====
     public int findMinion(Minion minion) {
+        // return index of customer (-1 if it doesn't exist)
         return minions.indexOf(minion);
     }
 
@@ -153,6 +155,7 @@ public class CardCollection {
     }
 
     public void printMinions() {
+        System.out.println();
         System.out.println("****** Current " + name + " ******");
 //        System.out.println("Current Minion Count = " + size); // I DON'T UNDERSTAND WHY THIS DOESN'T WORK??
         System.out.println("Current Minion Count = " + minions.size());

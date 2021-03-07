@@ -2,6 +2,7 @@ package com.conorginty.battlegrounds.Cards;
 
 import com.conorginty.battlegrounds.CardCollections.Board;
 import com.conorginty.battlegrounds.CardCollections.CardCollection;
+import com.conorginty.battlegrounds.Cards.AbilityInterfaces.Deathrattle;
 
 import java.util.ArrayList;
 
@@ -132,31 +133,25 @@ public class Minion {
         health -= amount;
     }
 
-    protected boolean die() {
+    public boolean die() {
         if (health <= 0) {
             System.out.println("Minion has died...");
-            checkDeathrattle();
             return true;
         }
         return false;
     }
 
-    private void checkDeathrattle() {
-        if (hasDeathrattle) {
-            activateDeathrattle();
-        }
+    // Summon the Minion from hand to the Board
+    public boolean play() {
+        System.out.println("Minion has been played...");
+        return true;
     }
 
-    protected boolean activateDeathrattle() {
-        // This will get Overridden by each class
-        // Boolean reflects if the effect was successful or not
-        return false;
-    }
-
-    public boolean activateBattlecry() {
-        // This will get Overridden by each class
-        // Boolean reflects if the effect was successful or not
-        return false;
+    public void attackMinion(Minion target) {
+        // targeted Minion loses health equal to the attacking minion's attack
+        target.loseHealth(this.attack);
+        // The attacking Minion also loses health equal to the defending minion's attack
+        loseHealth(target.attack);
     }
 
     // ===== Factory Constructor??? =====

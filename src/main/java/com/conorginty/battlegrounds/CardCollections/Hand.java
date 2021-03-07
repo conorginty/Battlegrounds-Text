@@ -24,6 +24,11 @@ public class Hand extends CardCollection {
             return false;
         }
 
+        if (board.isFull()) {
+            System.out.println("Board is full. Minion not played");
+            return false;
+        }
+
         // Identify and Remove the Minion from the hand
         Minion minionToPlay = popMinion(index);
         // Add the Minion to the board
@@ -31,10 +36,7 @@ public class Hand extends CardCollection {
         board.addNewMinion(minionToPlay);
 
         // If the played Minion has a Battlecry effect, activate it
-        if (minionToPlay.isHasBattlecry()) {
-            System.out.println("Activating Battlecry effect...");
-            minionToPlay.activateBattlecry();
-        }
+        minionToPlay.play();
         return true;
     }
 }
