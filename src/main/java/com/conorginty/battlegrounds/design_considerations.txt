@@ -14,4 +14,20 @@
     - Board is aware of No one
     - Tavern is aware of Hand (Hand has a reference to Board) => this allows for Minions to move from Tavern -> Hand (i.e. during purchase)
     - Hand is aware of Board (Hand has a reference to Board) => this allows for Minions to move from Hand -> Board (i.e. when playing a Minion)
-5.
+5. (7/3/21) Implement Abilities as Interfaces
+    - In my mind, it makes more sense to implement abilities as Interfaces, because not all minions have Abilities
+    - Usually, if a minion has an ability, it's a specific kind of ability (e.g. Battlecry, Deathrattle etc)
+    - In the end, problem overcome by
+    1. Deathrattle Minions overriding the Minion.die() method (by calling super.die(), but then also activating deathrattle after)
+    2. Battlecry Minions overriding the Minion.play() method (by calling super.play(), but then also activating battlecry after)
+    - Minion.play() was created specifically to allow for this interaction.
+    - MAIN PROBLEM: Having to override die() and play() in the EXACT SAME WAY for every minion subclass (e.g. super.die(), then activateDeathrattle())
+    - Would be better if the relevant interface could hold the logic of the of the overridden die() and play() methods, rather than duplicating the code in each subclass that
+      implements these interfaces...
+6. (7/3/21) Perhaps better to store Minions in a LinkedList (Or a queue???), rather than an ArrayList?
+    - Reasoning: When doing the logic for the battles, Minions attack in a specific order
+    - Problem with Queue - Can only pop from front (dequeue) and append at back (enqueue). However, if a Minion dies anywhere in the collection, it should get removed.
+    - Probably makes most sense to use queue, but keeping track of the iterator may prove difficult? (Will probably need listiterator to go back and forth as necessary)
+    - If LinkedList needed, do I need to alter the entire logic of the program and implement the minions field of CardCollections as a LinkedList instead of what it
+      is currently (i.e. an ArrayList)?
+    - Alternatively, can I just "cast" it to a LinkedList for the same of the battle?

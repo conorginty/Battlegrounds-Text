@@ -6,7 +6,10 @@ import com.conorginty.battlegrounds.CardCollections.Tavern;
 import com.conorginty.battlegrounds.Cards.Minion;
 import com.conorginty.battlegrounds.Cards.Tier1Minions.MurlocTidehunter;
 
+import java.util.Random;
 import java.util.Scanner;
+
+import java.util.Arrays;
 
 public class MainGame {
 
@@ -45,6 +48,7 @@ public class MainGame {
 //        board.printMinions();
 
         // ===== Playing a Game =====
+
         printWelcomeMessage();
 
         boolean quit = false;
@@ -77,7 +81,10 @@ public class MainGame {
                 case 6:
                     playMinion();
                     break;
-                case 10:
+//                case 10:
+//                    battle();
+//                    break;
+                case 11:
                     printActions();
                     break;
             }
@@ -85,10 +92,23 @@ public class MainGame {
     }
 
     // ===== Static Methods for Playing the Game =====
+//    private static void printWelcomeMessage() {
+//        System.out.println("****************************");
+//        System.out.println("Welcome " + player.getUsername() + " to a Text Based Version of Hearthstone's Auto-Chess Battler - Battlegrounds");
+//        System.out.println("****************************");
+//    }
+
     private static void printWelcomeMessage() {
-        System.out.println("****************************");
-        System.out.println("Welcome " + player.getUsername() + " to a Text Based Version of Hearthstone's Auto-Chess Battler - Battlegrounds");
-        System.out.println("****************************");
+        System.out.print("Please Enter your Name: ");
+        String name = scanner.nextLine();
+        String message = "Welcome " + name + " to a Text Based Version of Hearthstone's Auto-Chess Battler - Battlegrounds";
+        int n = message.length();
+        char[] chars = new char[n];
+        Arrays.fill(chars, '*');
+        String decorator = new String(chars);
+        System.out.println(decorator);
+        System.out.println(message);
+        System.out.println(decorator);
     }
 
     private static void printActions() {
@@ -100,10 +120,11 @@ public class MainGame {
         System.out.println("\t 4 - To display Tavern.");
         System.out.println("\t 5 - To buy a Minion from the Tavern.");
         System.out.println("\t 6 - To play a Minion from your Hand.");
-        System.out.println("\t 7 - To sell a Minion from your Hand.");
-        System.out.println("\t 8 - To re-roll the Tavern.");
-        System.out.println("\t 9 - To upgrade the Tavern.");
-        System.out.println("\t 10 - To print a list of available actions.");
+//        System.out.println("\t 7 - To sell a Minion from your Hand.");
+//        System.out.println("\t 8 - To re-roll the Tavern.");
+//        System.out.println("\t 9 - To upgrade the Tavern.");
+        System.out.println("\t 10 - To end turn, and BATTLE!!!");
+        System.out.println("\t 11 - To print a list of available actions.");
     }
 
     private static void buyMinion() {
@@ -157,4 +178,34 @@ public class MainGame {
             System.out.println("Invalid option Entered. No Minion was played");
         }
     }
+
+//    private int battle(Player yourPlayer, Player enemyPlayer) {
+//        // int represents outcome of battle: (1) if you won, (-1) if you lost and (0) if you drew
+//        Board yourBoard = yourPlayer.getBoard();
+//        Board enemyBoard = enemyPlayer.getBoard();
+//        Battle battle = new Battle(yourBoard, enemyBoard);
+//
+//        boolean continueBattling = !(yourBoard.isEmpty() && enemyBoard.isEmpty());
+//        while (continueBattling) {
+//            if (yourBoard.isEmpty() && enemyBoard.isEmpty()) {
+//                System.out.println("It was a Draw. Neither player took any damage");
+//                return 0;
+//            } else if (yourBoard.isEmpty()) {
+//                System.out.println("Enemy Wins");
+//                System.out.println("You took " + battle.determineDamageTaken(thePlayer, enemyBoard));
+//                return -1;
+//            } else if (enemyBoard.isEmpty()) {
+//                System.out.println("You Win");
+//                System.out.println("Your enemy took " + battle.determineDamageTaken(enemyPlayer, enemyBoard));
+//                return 1;
+//
+//                // Rest of the battle logic
+//                return 0;
+//        }
+
+
+//        Minion yourCurrentPointer = yourBoard.getMinions().get(0);
+//        Minion enemyCurrentPointer = enemyBoard.getMinions().get(0);
+        // returns true
+//    }
 }
