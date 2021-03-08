@@ -154,6 +154,13 @@ public class Minion {
         loseHealth(target.attack);
     }
 
+    @Override
+    public String toString() {
+//        String output = name + "\n\t" + "(" + type.substring(0, 3) + ") " + "[" + attack + "/" + health + "]";
+        String output = name + "(" + type.substring(0, 3) + ") " + "[" + attack + "/" + health + "]";
+        return output;
+    }
+
     // ===== Factory Constructor??? =====
     // Public static method to create a new Minion
     // static is important, as it means we don't have to create a new object instance for this Minion class

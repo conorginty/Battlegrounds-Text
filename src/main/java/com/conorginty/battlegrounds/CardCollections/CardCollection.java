@@ -31,8 +31,11 @@ public class CardCollection {
         return minions;
     }
 
+//    public int getSize() {
+//        return size;
+//    }
     public int getSize() {
-        return size;
+        return minions.size();
     }
 
     public int getMaxCapacity() {
@@ -155,17 +158,18 @@ public class CardCollection {
     }
 
     public void printMinions() {
-        System.out.println();
         System.out.println("****** Current " + name + " ******");
 //        System.out.println("Current Minion Count = " + size); // I DON'T UNDERSTAND WHY THIS DOESN'T WORK??
         System.out.println("Current Minion Count = " + minions.size());
         if (minions.isEmpty()) {
             System.out.println(name + " is currently empty");
+            System.out.println();
             return;
         }
         for (int i=0; i < minions.size(); i++) {
             Minion current = minions.get(i);
-            System.out.println(i+1 + ". " + current.getName() + " -> " + current.getAttack() + "/" + current.getHealth());
+//            System.out.println(i+1 + ". " + current.getName() + " -> " + current.getAttack() + "/" + current.getHealth());
+            System.out.println(i+1 + ". " + current);
         }
     }
 }

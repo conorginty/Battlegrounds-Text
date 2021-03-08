@@ -1,7 +1,8 @@
-package com.conorginty.battlegrounds;
+package com.conorginty.battlegrounds.Combat;
 
 import com.conorginty.battlegrounds.CardCollections.Board;
 import com.conorginty.battlegrounds.Cards.Minion;
+import com.conorginty.battlegrounds.Player;
 
 import java.util.Random;
 

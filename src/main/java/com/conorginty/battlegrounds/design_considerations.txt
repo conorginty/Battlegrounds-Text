@@ -31,3 +31,11 @@
     - If LinkedList needed, do I need to alter the entire logic of the program and implement the minions field of CardCollections as a LinkedList instead of what it
       is currently (i.e. an ArrayList)?
     - Alternatively, can I just "cast" it to a LinkedList for the same of the battle?
+7. (8/3/21) Decided that probably a Circularly Linked List makes the most sense to store Minions in during combat
+    - The nodes (Minions) do something (fight the Minions of an opposing CircularlyLinkedList of Minions) in order from left to right/ front to back, but the order can
+      sometimes be disrupted (by Minions in either LinkedList dying, and thus getting popped from the List).
+    - (e.g.1 we're at Node at i=0. We perform an action (attack), then we move to the node at i=1. But before it can perform an action, the node at i=1 gets popped, so
+      we move straight to i=2)
+    - (e.g.2 we have only 3 nodes/minions (i=0, 1 and 2). If we're at i=1, but then i=1 and i=2 get popped, we move backwards to i=0 (or maybe forward circularly to i=0?)
+      (e.g.3 we have 4 nodes/minions (i=0, 1, 2 and 3). If we're at i=0, but then i=1 and i=2 get popped, we move straight to i=3 (unless it too gets popped)and as well
+      as this, when we get to the end of the structure, we cycle back to the beginning.
